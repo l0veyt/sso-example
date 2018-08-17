@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.l0veyt.example</groupId>
+	<artifactId>sso-example</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<name>sso-example</name>
+	<description>Demo project for Spring Boot</description>
+
+	<!-- 聚合：添加modules，这样构建sso-example就能构建modules中所有的项目 -->
+	<modules>
+		<module>sso-same-origin</module>
+		<module>sso-cross-origin</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+</project>
