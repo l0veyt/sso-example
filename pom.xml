@@ -9,7 +9,7 @@
 	<packaging>pom</packaging>
 
 	<name>sso-example</name>
-	<description>Demo project for Spring Boot</description>
+	<description>SSO Example Project</description>
 
 	<!-- 聚合：添加modules，这样构建sso-example就能构建modules中所有的项目 -->
 	<modules>
@@ -17,9 +17,29 @@
 		<module>sso-cross-origin</module>
 	</modules>
 
+	<!-- 添加SpringBoot启动项目为父项目 -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.4.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<!-- 定义项目构建使用的编码以及JDK版本 -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+
+	<!-- 添加依赖管理，主要管理SpringBoot相关外的一些包，SpringBoot相关的包通过parent项目spring-boot-dependencies中的dependencyManagement来管理 -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>LATEST</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SSO Server Login Page</title>
+    <link rel="stylesheet" th:href="@{/semantic-ui/semantic.min.css}" href="../static/semantic-ui/semantic.min.css">
+</head>
+<body>
+    <p th:text="${test}"></p>
+    <div class="ui grid" style="margin-top: 0; margin-left: 0;">
+        <div class="column" style="max-width: 450px">
+            <div class="ui piled segment">
+                <h2 class="ui teal image header">
+                    <div class="content">
+                        SSO Login Page
+                    </div>
+                </h2>
+                <form class="ui large form" th:action="@{/user/login}" enctype="application/x-www-form-urlencoded" method="post">
+                    <div class="ui stacked segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="username" placeholder="Input your username"/>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="Input your password"/>
+                            </div>
+                        </div>
+                        <div id="submit" class="ui fluid large teal animated button">
+                            <div class="visible content">Sign In</div>
+                            <div class="hidden content">
+                                <i class="right sign in icon"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="hidden" value="${originUrl}"/>
+                        </div>
+                    </div>
+                    <div th:if="${errorInfo}" class="ui error message" style="display: inline">${errorInfo}</div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" th:src="@{/jquery/jquery.min.js}" src="../static/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("#submit").click(function() {
+            $(".form").submit();
+        });
+    </script>
+</body>
+</html>
